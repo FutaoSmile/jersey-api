@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="foundation" />
         <module name="fundation" />
         <module name="model" />
         <module name="service" />
@@ -13,6 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bishe" target="1.8" />
+      <module name="foundation" target="1.8" />
       <module name="fundation" target="1.8" />
       <module name="model" target="1.8" />
       <module name="service" target="1.8" />

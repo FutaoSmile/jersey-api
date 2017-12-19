@@ -1,10 +1,13 @@
 package impl.service
 
+import app.TransactionTimeout
+import app.hibernate.currentSession
 import entity.User
 import face.service.UserService
-import org.hibernate.cfg.Configuration
 import org.joda.time.DateTime
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Isolation
+import org.springframework.transaction.annotation.Transactional
 import java.sql.Timestamp
 
 /**
@@ -12,24 +15,21 @@ import java.sql.Timestamp
  * Created on 2017/12/19 - 13:14.
  */
 @Service
+@Transactional(timeout = TransactionTimeout, isolation = Isolation.REPEATABLE_READ)
 open class UserServiceImpl : UserService {
     override fun add(nickName: String, mobile: String): User {
-        val configuration = Configuration().configure()
-        val buildSessionFactory = configuration.buildSessionFactory()
-        val openSession = buildSessionFactory.openSession()
-        val beginTransaction = openSession.beginTransaction()
-
         val user = User().apply {
-            setMobile("123456789")
-            setNickName("nickname")
+            setMobile(nickName)
+            setNickName(mobile)
             createTime = Timestamp(DateTime.now().millis)
             lastModifyTime = Timestamp(DateTime.now().millis)
         }
-        openSession.save(user)
-        beginTransaction.commit()
-        openSession.close()
-        buildSessionFactory.close()
+        currentSession().save(user)
         return user
+    }
+
+    override fun list(nickName: String, mobile: String): List<User> {
+        return userDao.list(mobile, mobile)
     }
 
 }

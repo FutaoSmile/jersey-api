@@ -8,4 +8,5 @@ import entity.User
  */
 interface UserService {
     fun add(nickName: String, mobile: String): User
+    fun list(nickName: String, mobile: String): List<User>
 }

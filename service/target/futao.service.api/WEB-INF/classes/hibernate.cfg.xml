@@ -4,18 +4,30 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+
+
         <!--数据库url，以及防止中文乱码-->
         <!--character data  在标记CDATA下，所有与XML规范冲突的关键字字符串都被XML处理程序一视同仁地当做字符数据看待-->
-        <property name="hibernate.connection.url"><![CDATA[jdbc:mysql://39.106.131.192:3306/bishe?useUnicode=true&characterEncoding=UTF-8]]></property>
+
+
+        <!--<property name="hibernate.connection.url"><![CDATA[jdbc:mysql://39.106.131.192:3306/bishe?useUnicode=true&characterEncoding=UTF-8]]></property>-->
+
+
         <!--<property name="hibernate.connection.url"><![CDATA[jdbc:mysql://39.106.131.192:3306/bishe?useUnicode=true&characterEncoding=UTF-8]]></property>-->
         <!--<property name="hibernate.connection.url"><![CDATA[jdbc:mysql://localhost:3306/hibernate?useUnicode=true&amp;characterEncoding=UTF-8]]></property>-->
         <!--Mysql驱动-->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--Mysql用户名-->
         <!--<property name="hibernate.connection.username">root</property>-->
-        <property name="hibernate.connection.username"><![CDATA[root]]></property>
-        <!--Mysql密码-->
-        <property name="hibernate.connection.password"><![CDATA[futao0608]]></property>
+
+
+
+        <!--<property name="hibernate.connection.username"><![CDATA[root]]></property>-->
+        <!--&lt;!&ndash;Mysql密码&ndash;&gt;-->
+        <!--<property name="hibernate.connection.password"><![CDATA[futao0608]]></property>-->
+        <!---->
+
+
         <!--<property name="hibernate.connection.password">123456</property>-->
         <!--方言-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

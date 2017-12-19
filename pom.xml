@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>fundation</module>
+        <module>foundation</module>
         <module>model</module>
         <module>service</module>
     </modules>
@@ -132,7 +132,7 @@
             <!--project start-->
             <dependency>
                 <groupId>com.futao</groupId>
-                <artifactId>fundation</artifactId>
+                <artifactId>foundation</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -297,7 +297,7 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            
+
         </plugins>
     </build>
     <profiles>

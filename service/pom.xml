@@ -24,7 +24,6 @@
         <groupId>com.futao</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service</artifactId>
@@ -42,7 +41,7 @@
         <!--project start-->
         <dependency>
             <groupId>com.futao</groupId>
-            <artifactId>fundation</artifactId>
+            <artifactId>foundation</artifactId>
         </dependency>
         <dependency>
             <groupId>com.futao</groupId>

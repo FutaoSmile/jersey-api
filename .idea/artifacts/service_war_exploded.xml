@@ -10,8 +10,8 @@
           <element id="archive" name="service-1.0-SNAPSHOT.jar">
             <element id="module-output" name="service" />
           </element>
-          <element id="archive" name="fundation-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="fundation" />
+          <element id="archive" name="foundation-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="foundation" />
           </element>
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.17" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:2.17" />

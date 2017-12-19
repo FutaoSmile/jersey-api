@@ -15,7 +15,7 @@ import java.sql.Timestamp;
  * Created on 2017/12/19 - 13:07.
  */
 @Entity
-@Table(name = "keshe_user")
+@Table(name = "bishe_user")
 @DynamicInsert
 @DynamicUpdate
 public class User extends IdEntity implements TimeEntity {
@@ -23,7 +23,7 @@ public class User extends IdEntity implements TimeEntity {
     /**
      * nick name 昵称，唯一
      */
-    @Column(name = "nick_name", unique = true, length = _nickName_len_max)
+    @Column(name = "nick_name", length = _nickName_len_max)
     private String nickName;
     public static final String _nickName = "nickName";
     public static final int _nickName_len_max = 50;
