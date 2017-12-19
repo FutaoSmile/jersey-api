@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--数据库url，以及防止中文乱码-->
+        <!--character data  在标记CDATA下，所有与XML规范冲突的关键字字符串都被XML处理程序一视同仁地当做字符数据看待-->
+        <property name="hibernate.connection.url"><![CDATA[jdbc:mysql://39.106.131.192:3306/bishe?useUnicode=true&characterEncoding=UTF-8]]></property>
+        <!--<property name="hibernate.connection.url"><![CDATA[jdbc:mysql://39.106.131.192:3306/bishe?useUnicode=true&characterEncoding=UTF-8]]></property>-->
+        <!--<property name="hibernate.connection.url"><![CDATA[jdbc:mysql://localhost:3306/hibernate?useUnicode=true&amp;characterEncoding=UTF-8]]></property>-->
+        <!--Mysql驱动-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--Mysql用户名-->
+        <!--<property name="hibernate.connection.username">root</property>-->
+        <property name="hibernate.connection.username"><![CDATA[root]]></property>
+        <!--Mysql密码-->
+        <property name="hibernate.connection.password"><![CDATA[futao0608]]></property>
+        <!--<property name="hibernate.connection.password">123456</property>-->
+        <!--方言-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--数据库连接池-->
+        <!--<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider-->
+        <!--</property>-->
+        <!--批量处理,要同步设置session的flush()与clear()-->
+        <!--<property name="hibernate.jdbc.batch_size">100</property>-->
+        <!--二级缓存-->
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <!--调试时显示sql语句-->
+        <property name="show_sql">true</property>
+        <!--限制在 Hibernate 应用数据库连接池中连接的数量-->
+        <!--<property name="hibernate.connection.pool_size">10</property>-->
+        <!--允许在 JDBC 连接中使用自动提交模式-->
+        <!--<property name="hibernate.connection.autocommit">true</property>-->
+        <!--格式化调试时输出的sql语句-->
+        <property name="format_sql">true</property>
+        <!-- DB schema will be updated if needed -->
+        <!--create表结构每次发生改变都会删除原来的表，创建新的表。update是在原有的表上进行更新，保留数据-->
+        <property name="hbm2ddl.auto">update</property>
+        <!--<property name="hbm2ddl.auto">create</property>-->
+        <property name="hibernate.search.default.directory_provider">filesystem</property>
+        <!---->
+        <!--自动识别数据库关键字-->
+        <!--<property name="hibernate.auto_quote_keyword">true</property>-->
+
+        <!--映射文件-->
+        <mapping class="entity.User"/>
+    </session-factory>
+</hibernate-configuration>
