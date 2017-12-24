@@ -10,5 +10,7 @@ import org.glassfish.jersey.server.ResourceConfig
 open class RestJaxRsApplication : ResourceConfig() {
     init {
         register(MultiPartFeature::class.java)
+        /*RESTfull APi*/
+        register(RESTfullWrapper::class.java)
     }
 }

@@ -1,7 +1,7 @@
 package impl.service
 
 import app.TransactionTimeout
-import app.hibernate.currentSession
+import utils.service.save
 import entity.User
 import face.service.UserService
 import org.joda.time.DateTime
@@ -18,14 +18,13 @@ import java.sql.Timestamp
 @Transactional(timeout = TransactionTimeout, isolation = Isolation.REPEATABLE_READ)
 open class UserServiceImpl : UserService {
     override fun add(nickName: String, mobile: String): User {
-        val user = User().apply {
+        return User().apply {
             setMobile(nickName)
             setNickName(mobile)
             createTime = Timestamp(DateTime.now().millis)
             lastModifyTime = Timestamp(DateTime.now().millis)
         }
-        currentSession().save(user)
-        return user
+                .save()
     }
 
     override fun list(nickName: String, mobile: String): List<User> {

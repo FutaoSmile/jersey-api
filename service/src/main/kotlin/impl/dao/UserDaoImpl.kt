@@ -1,7 +1,7 @@
 package impl.dao
 
 
-import app.hibernate.currentSession
+import utils.service.currentSession
 import entity.User
 import face.dao.UserDao
 import org.hibernate.criterion.Restrictions

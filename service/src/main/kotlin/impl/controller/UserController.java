@@ -1,5 +1,6 @@
 package impl.controller;
 
+import annotation.LoginUser;
 import entity.User;
 import face.chain.UserChain;
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,7 @@ public class UserController {
      * @return List<User>
      */
     @GET
+    @LoginUser
     @Produces(MediaType.APPLICATION_JSON)
     @Path("list")
     public List<User> list(

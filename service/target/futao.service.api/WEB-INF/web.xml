@@ -14,17 +14,17 @@
     </listener>
 
     <!--<servlet>-->
-        <!--<servlet-name>jersey-serlvet</servlet-name>-->
-        <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
-        <!--<init-param>-->
-            <!--<param-name>jersey.config.server.provider.packages</param-name>-->
-            <!--<param-value>com.wise.foundation.fliter;com.wise.wises.impl.controller;com.wise.wises.filter</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name>javax.ws.rs.Application</param-name>-->
-            <!--<param-value>com.wise.app.RestJaxRsApplication</param-value>-->
-        <!--</init-param>-->
-        <!--<load-on-startup>1</load-on-startup>-->
+    <!--<servlet-name>jersey-serlvet</servlet-name>-->
+    <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
+    <!--<init-param>-->
+    <!--<param-name>jersey.config.server.provider.packages</param-name>-->
+    <!--<param-value>com.wise.foundation.fliter;com.wise.wises.impl.controller;com.wise.wises.filter</param-value>-->
+    <!--</init-param>-->
+    <!--<init-param>-->
+    <!--<param-name>javax.ws.rs.Application</param-name>-->
+    <!--<param-value>com.wise.app.RestJaxRsApplication</param-value>-->
+    <!--</init-param>-->
+    <!--<load-on-startup>1</load-on-startup>-->
     <!--</servlet>-->
 
     <servlet>
@@ -34,7 +34,7 @@
         </servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>impl.controller</param-value>
+            <param-value>filter;impl.controller</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
@@ -48,43 +48,17 @@
         <url-pattern>/rs/*</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet>-->
-        <!--<servlet-name>DruidStatView</servlet-name>-->
-        <!--<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>-->
-    <!--</servlet>-->
-     <!--访问的时候前面要加虚拟目录名,例:/wise-wises/druid-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>DruidStatView</servlet-name>-->
-        <!--<url-pattern>/druid/*</url-pattern>-->
-    <!--</servlet-mapping>-->
 
-
-
-
+    <!--RESTfull API filter start-->
     <!--<filter>-->
-        <!--<filter-name>DruidWebStatFilter</filter-name>-->
-        <!--<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>-->
-        <!--<init-param>-->
-            <!--<param-name>exclusions</param-name>-->
-            <!--<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid-web/*</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name>profileEnable</param-name>-->
-            <!--<param-value>true</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name>principalCookieName</param-name>-->
-            <!--<param-value>uid</param-value>-->
-        <!--</init-param>-->
+        <!--<filter-name>RestfullFilter</filter-name>-->
+        <!--<filter-class>com.wise.foundation.fliter.AppFilter</filter-class>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>DruidWebStatFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
+        <!--<filter-name>RestfullFilter</filter-name>-->
+        <!--<url-pattern>/rs/*</url-pattern>-->
     <!--</filter-mapping>-->
-
-
-
-
+    <!--RESTfull API filter end-->
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
