@@ -6,11 +6,13 @@
         <artifactId>bishe</artifactId>
         <groupId>com.futao</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
+
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>foundation</artifactId>
+
 
     <properties>
         <kotlin.version>1.2.10</kotlin.version>
@@ -18,6 +20,10 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.futao</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
@@ -42,10 +48,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.futao</groupId>
-            <artifactId>model</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -61,15 +63,53 @@
             <artifactId>gson</artifactId>
             <version>2.8.0</version>
         </dependency>
-        <!--不可循环引用-->
-        <!--<dependency>-->
-        <!--<groupId>com.futao</groupId>-->
-        <!--<artifactId>service</artifactId>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>
+        <!--<finalName>futao.service.foundation</finalName>-->
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <show>private</show>
+                    <!--<outputEncoding>${project.build.sourceEncoding}</outputEncoding>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration> <!-- add this to disable checking -->
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -90,11 +130,46 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <jvmTarget>1.8</jvmTarget>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
         </plugins>
+
+
     </build>
 
 

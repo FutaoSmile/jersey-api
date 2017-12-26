@@ -1,7 +1,7 @@
 package app
 
 import com.google.gson.GsonBuilder
-import entity.functional.base.RESTfullAPI
+import entity.base.RESTfullAPI
 import java.io.OutputStream
 import java.lang.reflect.Type
 import javax.ws.rs.core.MediaType

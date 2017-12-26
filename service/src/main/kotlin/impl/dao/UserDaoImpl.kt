@@ -1,8 +1,8 @@
 package impl.dao
 
 
-import utils.service.currentSession
 import entity.User
+import utils.service.currentSession
 import face.dao.UserDao
 import org.hibernate.criterion.Restrictions
 import org.springframework.stereotype.Repository

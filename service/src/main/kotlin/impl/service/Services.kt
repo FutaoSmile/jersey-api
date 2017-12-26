@@ -1,7 +1,8 @@
 package impl.service
 
-import face.service.UserService
 import app.bean
+import face.service.UserService
+
 import face.dao.UserDao
 import org.hibernate.SessionFactory
 

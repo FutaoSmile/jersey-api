@@ -1,8 +1,8 @@
 package impl.service
 
 import app.TransactionTimeout
-import utils.service.save
 import entity.User
+import utils.service.save
 import face.service.UserService
 import org.joda.time.DateTime
 import org.springframework.stereotype.Service
