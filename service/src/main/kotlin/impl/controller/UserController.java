@@ -22,6 +22,7 @@ import static app.ConfigKt.TransactionTimeout;
 @Transactional(timeout = TransactionTimeout, isolation = Isolation.REPEATABLE_READ, rollbackFor = Exception.class)
 @Path("user")
 public class UserController {
+
     @Resource
     private UserChain userChain;
 

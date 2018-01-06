@@ -17,6 +17,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.2.10</kotlin.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
@@ -167,7 +168,7 @@
                 <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>src/main/kotlin</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.properties</include>
                 </includes>
