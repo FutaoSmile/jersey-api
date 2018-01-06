@@ -1,6 +1,7 @@
 package face.chain
 
 import entity.User
+import impl.controller.Niu
 
 /**
  * @author futao
@@ -8,5 +9,5 @@ import entity.User
  */
 interface UserChain {
     fun add(nickName: String, mobile: String): User?
-    fun list(nickname: String, mobile: String): List<User>
+    fun list(nickname: String, mobile: String): Niu
 }

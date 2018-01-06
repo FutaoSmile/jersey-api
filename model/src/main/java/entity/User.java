@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 @Table(name = "bishe_user")
 @DynamicInsert
 @DynamicUpdate
-public class User extends IdEntity implements TimeEntity,RESTfullAPI {
+public class User extends IdEntity implements TimeEntity, RESTfullAPI {
 
     /**
      * nick name 昵称，唯一

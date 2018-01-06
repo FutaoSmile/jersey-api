@@ -6,3 +6,11 @@ package app
  */
 
 const val TransactionTimeout = 20
+
+const val METHOD_DELETE = "DELETE"
+const val METHOD_HEAD = "HEAD"
+const val METHOD_GET = "GET"
+const val METHOD_OPTIONS = "OPTIONS"
+const val METHOD_POST = "POST"
+const val METHOD_PUT = "PUT"
+const val METHOD_TRACE = "TRACE"

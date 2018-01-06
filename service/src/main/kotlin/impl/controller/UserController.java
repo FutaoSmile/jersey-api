@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import java.util.List;
 
 import static app.ConfigKt.TransactionTimeout;
 
@@ -54,7 +53,7 @@ public class UserController {
     @LoginUser
     @Produces(MediaType.APPLICATION_JSON)
     @Path("list")
-    public List<User> list(
+    public Niu list(
             @QueryParam("nickname") @DefaultValue("") String nickname,
             @QueryParam("mobile") @DefaultValue("") String mobile
     ) {

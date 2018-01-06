@@ -2,6 +2,7 @@ package app
 
 import org.glassfish.jersey.media.multipart.MultiPartFeature
 import org.glassfish.jersey.server.ResourceConfig
+import org.glassfish.jersey.server.spring.scope.RequestContextFilter
 
 /**
  * @author futao
@@ -12,5 +13,7 @@ open class RestJaxRsApplication : ResourceConfig() {
         register(MultiPartFeature::class.java)
         /*RESTfull APi*/
         register(RESTfullWrapper::class.java)
+
+        register(RequestContextFilter::class.java)
     }
 }

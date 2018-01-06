@@ -1,5 +1,7 @@
 package controller
 
+import com.google.gson.GsonBuilder
+import entity.User
 import org.junit.Test
 
 /**
@@ -9,6 +11,11 @@ import org.junit.Test
 class UserTest {
     @Test
     fun add() {
+        val user = User().apply {
+            mobile = "12312312"
+            nickName = "fsdfdf"
+        }
+        println(GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(user))
 
     }
 }
