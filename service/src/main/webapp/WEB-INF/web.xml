@@ -33,7 +33,7 @@
 
     <servlet-mapping>
         <servlet-name>jersey-servlet</servlet-name>
-        <url-pattern>/rs/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -42,7 +42,7 @@
     </filter>
     <filter-mapping>
         <filter-name>RestfullFilter</filter-name>
-        <url-pattern>/rs/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 
@@ -58,54 +58,54 @@
     <!--RESTfull API filter end-->
 
     <!--注册servlet-->
-    <servlet>
-        <servlet-name>some-servlet</servlet-name>
-        <servlet-class>impl.com.bjpn.servlet.SomeServlet</servlet-class>
-        <!--程序启动的时候就创建这个实例，顺序从小到大，从0开始-->
-        <load-on-startup>0</load-on-startup>
-        <!--初始化，调用init方法的时候-->
-        <!--<init-param>-->
-            <!--<param-name>author</param-name>-->
-            <!--<param-value>futao</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name>address</param-name>-->
-            <!--<param-value>Shanghai</param-value>-->
-        <!--</init-param>-->
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>some-servlet</servlet-name>
-        <url-pattern>/some</url-pattern>
-    </servlet-mapping>
+    <!--<servlet>-->
+        <!--<servlet-name>some-servlet</servlet-name>-->
+        <!--<servlet-class>impl.com.bjpn.servlet.SomeServlet</servlet-class>-->
+        <!--&lt;!&ndash;程序启动的时候就创建这个实例，顺序从小到大，从0开始&ndash;&gt;-->
+        <!--<load-on-startup>0</load-on-startup>-->
+        <!--&lt;!&ndash;初始化，调用init方法的时候&ndash;&gt;-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-name>author</param-name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-value>futao</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-name>address</param-name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-value>Shanghai</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>some-servlet</servlet-name>-->
+        <!--<url-pattern>/some</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <servlet>
-        <servlet-name>servlet-urlparameter</servlet-name>
-        <servlet-class>impl.com.bjpn.servlet.SomeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>servlet-urlparameter</servlet-name>
-        <!--一个servlet可以有多个url与之相关联-->
-        <url-pattern>/url</url-pattern>
-        <url-pattern>/url/a</url-pattern>
-        <url-pattern>/url/b</url-pattern>
-        <!--通配符-->
-        <url-pattern>/url/a/*</url-pattern>
-        <!-- /*  与 /  的区别
-            都是全路径模式
-            /* 是真正的全路径模式，可以拦截所有的请求，无论是动态请求还是静态资源请求
-            / 只会拦截静态资源请求，对于动态资源请求是不拦截的
-        -->
-        <url-pattern>/url/a/</url-pattern>
-        <!--拦截以.do 结尾的请求 -->
-        <url-pattern>*.do</url-pattern>
-        <!--匹配原则：
-            1.路径优先于后缀名
-            2.精准路径优先匹配原则
-            3.最长路径优先匹配原则
-           两种方式不可混合使用 eg /a.do
+    <!--<servlet>-->
+        <!--<servlet-name>servlet-urlparameter</servlet-name>-->
+        <!--<servlet-class>impl.com.bjpn.servlet.SomeServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>servlet-urlparameter</servlet-name>-->
+        <!--&lt;!&ndash;一个servlet可以有多个url与之相关联&ndash;&gt;-->
+        <!--<url-pattern>/url</url-pattern>-->
+        <!--<url-pattern>/url/a</url-pattern>-->
+        <!--<url-pattern>/url/b</url-pattern>-->
+        <!--&lt;!&ndash;通配符&ndash;&gt;-->
+        <!--<url-pattern>/url/a/*</url-pattern>-->
+        <!--&lt;!&ndash; /*  与 /  的区别-->
+            <!--都是全路径模式-->
+            <!--/* 是真正的全路径模式，可以拦截所有的请求，无论是动态请求还是静态资源请求-->
+            <!--/ 只会拦截静态资源请求，对于动态资源请求是不拦截的-->
+        <!--&ndash;&gt;-->
+        <!--<url-pattern>/url/a/</url-pattern>-->
+        <!--&lt;!&ndash;拦截以.do 结尾的请求 &ndash;&gt;-->
+        <!--<url-pattern>*.do</url-pattern>-->
+        <!--&lt;!&ndash;匹配原则：-->
+            <!--1.路径优先于后缀名-->
+            <!--2.精准路径优先匹配原则-->
+            <!--3.最长路径优先匹配原则-->
+           <!--两种方式不可混合使用 eg /a.do-->
 
-        -->
-    </servlet-mapping>
+        <!--&ndash;&gt;-->
+    <!--</servlet-mapping>-->
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
